@@ -13,6 +13,7 @@ from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user, allowed_users, admin_only
 
 @unauthenticated_user
+@login_required(login_url='login')
 def registerPage(request):
     form = CreateUserForm()
 
@@ -22,7 +23,7 @@ def registerPage(request):
             user = form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, "Account sucessfully created for " + username)
-            return HttpResponseRedirect('/login/')
+            return redirect('login')
 
     context = {'form': form}
     return render(request, 'accounts/register.html', context)
