@@ -13,7 +13,6 @@ from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user, allowed_users, admin_only
 
 @unauthenticated_user
-@login_required(login_url='login')
 def registerPage(request):
     form = CreateUserForm()
 
