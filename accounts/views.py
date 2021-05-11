@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-
 from django.http import HttpResponse
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
@@ -8,7 +9,6 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 
-# from django.contrib.auth.models import Group
 from .models import *
 from .forms import OrderForm, CreateUserForm, CustomerForm
 from .filters import OrderFilter
@@ -25,7 +25,10 @@ def registerPage(request):
             username = form.cleaned_data.get('username')
             messages.success(request, "Account sucessfully created for " + username)
             return reverse_lazy('login')
-
+        else:
+            print("Not registered")
+            print(form.errors)
+            
     context = {'form': form}
     return render(request, 'accounts/register.html', context)
 
