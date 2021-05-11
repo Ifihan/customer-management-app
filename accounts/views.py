@@ -18,17 +18,20 @@ from .decorators import unauthenticated_user, allowed_users, admin_only
 def registerPage(request):
     form = CreateUserForm()
 
+    # if request.method == "GET":
+    #     return form
+
     if request.method == "POST":
         form = CreateUserForm(request.POST)
         if form.is_valid():
             user = form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, "Account sucessfully created for " + username)
-            return reverse_lazy('login')
+            return redirect('login')
         else:
             print("Not registered")
             print(form.errors)
-            
+
     context = {'form': form}
     return render(request, 'accounts/register.html', context)
 
