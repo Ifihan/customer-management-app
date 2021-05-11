@@ -1,15 +1,16 @@
 from django.shortcuts import render, redirect
-
 from django.http import HttpResponse
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
+from django.urls import reverse_lazy
 # from django.contrib.auth.models import Group
+
 from .models import *
 from .forms import OrderForm, CreateUserForm, CustomerForm
 from .filters import OrderFilter
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user, allowed_users, admin_only
 
 @unauthenticated_user
@@ -22,7 +23,7 @@ def registerPage(request):
             user = form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, "Account sucessfully created for " + username)
-            return redirect('login/')
+            return reverse_lazy('login')
         else:
             print("Not registered")
             print(form.errors)
