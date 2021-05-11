@@ -109,7 +109,7 @@
 					</form>
 				</div>
 		
-                {{ forms.erros }}
+                {{ form.errors }}
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
 						Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a>
@@ -137,20 +137,3 @@
 	</script>
 </body>
 </html>
-
-<h3>Register</h3>
-
-<form method="POST", action="">
-    {{ form.username.label }}
-    
-
-    {{ form.email.label }}
-    
-
-    {{ form.password1.label }}
-    
-
-    {{ form.password2.label }}
-    
-    <input type="submit" name="Create User">
-</form>

@@ -23,6 +23,9 @@ def registerPage(request):
             username = form.cleaned_data.get('username')
             messages.success(request, "Account sucessfully created for " + username)
             return redirect('login/')
+        else:
+            print("Not registered")
+            print(form.errors)
 
     context = {'form': form}
     return render(request, 'accounts/register.html', context)
