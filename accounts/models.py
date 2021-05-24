@@ -25,8 +25,8 @@ class Tag(models.Model):
 
 class Product(models.Model):
     CATEGORY = (
-        ('Indoor', 'Indoor'),
-        ('Out Door', 'Out Door')
+        ('indoor', 'Indoor'),
+        ('outdoor', 'Out Door')
     )
 
     name = models.CharField(max_length=200, null=True)
@@ -42,9 +42,9 @@ class Product(models.Model):
 
 class Order(models.Model):
     STATUS = (
-        ('Pending', 'Pending'),
-        ('Out for delivery', 'Out for delivery'),
-        ('Delivered', 'Delivered')
+        ('pending', 'Pending'),
+        ('out_for_delivery', 'Out for delivery'),
+        ('delivered', 'Delivered')
     )
 
     customer = models.ForeignKey(
