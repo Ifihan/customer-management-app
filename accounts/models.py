@@ -15,7 +15,6 @@ class Customer(models.Model):
     def __str__(self):
         return self.name
 
-
 class Tag(models.Model):
     name = models.CharField(max_length=200, null=True)
 
@@ -42,7 +41,7 @@ class Product(models.Model):
 
 class Order(models.Model):
     STATUS = (
-        ('pending', 'Pending'),
+        ('pending', 'pending'),
         ('out_for_delivery', 'Out for delivery'),
         ('delivered', 'Delivered')
     )

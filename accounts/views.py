@@ -72,7 +72,7 @@ def home(request):
     total_customers = customers.count()
     total_orders = orders.count()
     delivered = orders.filter(status='Delivered').count()
-    pending = orders.filter(status='Pending').count()
+    pending = orders.filter(status='pending').count()
     context = {'orders': orders, 'customers': customers,
                'total_orders': total_orders, 'delivered': delivered, 'pending': pending}
 
@@ -86,7 +86,7 @@ def userPage(request):
     orders = request.user.customer.order_set.all()
     total_orders = orders.count()
     delivered = orders.filter(status='Delivered').count()
-    pending = orders.filter(status='Pending').count()
+    pending = orders.filter(status='pending').count()
 
     context = {'orders': orders, 'total_orders': total_orders,
                'delivered': delivered, 'pending': pending, 'customer':customer}
