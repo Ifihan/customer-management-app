@@ -1,22 +1,23 @@
-{%  extends 'accounts/main.html' %}
+{% extends 'accounts/main.html' %}
 
 {% block content %}
 
-	<br>
+<br>
 
-<div class="row">
-	<div class="col-md">
-		<div class="card card-body">
+<div class="row customer-card-info">
+	<div class="col-lg-4 col-md-6 col-sm-12 card-wrap">
+		<div class="card">
 			<h5>Customer: {{customer.name}}</h5>
 			<hr>
 			<a class="btn btn-outline-info  btn-sm btn-block" href="">Update Customer</a>
-			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'create_order' customer.id %}">Place Order</a>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'create_order' customer.id %}">Place
+				Order</a>
 
 		</div>
 	</div>
 
-	<div class="col-md">
-		<div class="card card-body">
+	<div class="col-lg-4 col-md-6 col-sm-12 card-wrap">
+		<div class="card">
 			<h5>Contact Information</h5>
 			<hr>
 			<p>Email: {{ customer.email }}</p>
@@ -24,11 +25,11 @@
 		</div>
 	</div>
 
-	<div class="col-md">
-		<div class="card card-body">
+	<div class="col-lg-4 col-md-12 col-sm-12 card-wrap">
+		<div class="card">
 			<h5>Total Orders</h5>
 			<hr>
-			<h1 style="text-align: center;padding: 10px">{{orders_count}}</h1>
+			<h1 style="text-align: center;">{{orders_count}}</h1>
 		</div>
 	</div>
 </div>
@@ -38,19 +39,19 @@
 <div class="row">
 	<div class="col">
 		<div class="card card-body">
-			<form method="get">
+			<form id="customer-form" method="get">
 				{{ myFilter.form }}
-		    <button class="btn btn-primary" type="submit">Search</button>
-		  </form>
+				<button class="btn btn-primary" type="submit">Search</button>
+			</form>
 		</div>
 	</div>
-	
+
 </div>
 <br>
 
 <div class="row">
 	<div class="col-md">
-		<div class="card card-body">
+		<div class="card card-body table_wrap">
 			<table class="table table-sm">
 				<tr>
 					<th>Product</th>
@@ -69,7 +70,7 @@
 					<td><a href="{% url 'update_order' order.id %}" class="btn btn-sm btn-info">Update</a></td>
 					<td><a href="{% url 'delete_order' order.id %}" class="btn btn-sm btn-danger">Delete</a></td>
 				</tr>
-			{% endfor %}
+				{% endfor %}
 			</table>
 		</div>
 	</div>

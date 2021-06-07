@@ -1,24 +1,18 @@
-{%  extends 'accounts/main.html' %}
-{% load static %}
-{%  block content %}
+{% extends 'accounts/main.html' %} {% load static %} {% block content %}
 
-
-<br>
-<div class="row">
-    <div class="col-md-6">
-        <div class="card card-body">
-            <form method="POST", action="">
-                {% csrf_token %}
-                {{ formset.management_form }}
-                {% for form in formset %}
-                {{ form }}
-                <hr>
-                {% endfor %}
-                <input type="submit", name="submit">
-            </form>
-        </div>
-    </div>
+<br />
+<div class="row order-form">
+  <!-- <div class="col-md-6"> -->
+  <div class="card card-body">
+    <form method="POST" , action="">
+      {% csrf_token %} {{ formset.management_form }} {% for form in formset %}
+      {{ form }}
+      <hr />
+      {% endfor %}
+      <input type="submit" , name="submit" />
+    </form>
+  </div>
+  <!-- </div> -->
 </div>
-
 
 {% endblock %}
