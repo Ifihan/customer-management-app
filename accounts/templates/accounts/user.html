@@ -1,4 +1,4 @@
-{%  extends 'accounts/main.html' %}
+{% extends 'accounts/main.html' %}
 {% block content %}
 {% include 'accounts/status.html' %}
 
@@ -6,19 +6,20 @@
 	<div class="col-md">
 		<div class="card card-body">
 			<hr>
-			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'create_order' customer.id %}">Place Order</a>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'create_order' customer.id %}">Place
+				Order</a>
 		</div>
 	</div>
 </div>
 
 <div class="row">
 	<div class="col-md">
-		<div class="card card-body">
+		<div class="card card-body table_wrap">
 			<table class="table table-sm">
 				<tr>
 					<th>Product</th>
 					<th>Note</th>
-					<th>Date Orderd</th>
+					<th>Date Ordered</th>
 					<th>Status</th>
 				</tr>
 				{% for order in orders %}
@@ -28,7 +29,7 @@
 					<td>{{ order.date_created }}</td>
 					<td>{{ order.status }}</td>
 				</tr>
-			{% endfor %}
+				{% endfor %}
 			</table>
 		</div>
 	</div>
