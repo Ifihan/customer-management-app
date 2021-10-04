@@ -21,11 +21,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = config('SECRET_KEY')
-SECRET_KEY = "dhblsd;lds3494uuo;e;s0wenewnbeb"
+SECRET_KEY = config('SECRET_KEY')
+
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = config('DEBUG')
-DEBUG = True
+DEBUG = config('DEBUG')
+
 
 ALLOWED_HOSTS = ['ifihan-cma.herokuapp.com', '127.0.0.1']
 
@@ -152,7 +152,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'victoriaolusheye@gmail.com'
-EMAIL_HOST_PASSWORD = "blehbelh"
-# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
