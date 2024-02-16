@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG')
 
 
-ALLOWED_HOSTS = ['ifihan-cma.herokuapp.com', '127.0.0.1', "https://crm-519y.onrender.com"]
+ALLOWED_HOSTS = ['ifihan-cma.herokuapp.com', '127.0.0.1', "crm-519y.onrender.com"]
 
 
 # Application definition
